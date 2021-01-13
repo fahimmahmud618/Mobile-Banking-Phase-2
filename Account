@@ -1,0 +1,44 @@
+package my_banking;
+
+/**
+ *
+ * @author Fahim Mahmud
+ */
+public class Bank_Accounts {
+    private String account_holder_name, account_holder_ph_number;
+    private double balance ;
+    int pin_number;
+    
+    public Bank_Accounts(String account_holder_name, String account_holder_ph_number,int pin_number ){
+        this.account_holder_name = account_holder_name;
+        this.account_holder_ph_number = account_holder_ph_number;
+        this.pin_number = pin_number;
+    }
+    public void add_money(double amount){
+        this.balance = balance + amount ;
+        System.out.println("Cash in Successfully!");
+    }
+    
+    public void cash_out (double amount, int pin){
+        System.out.println(pin);
+        System.out.println(pin_number);
+        if(pin != pin_number){
+            System.out.println("Pin Doesn't Matched");
+        }
+        else{
+            if(amount <= balance){
+                balance = balance - amount ;
+                System.out.println("Cash Out Successfully!");
+            }
+            else{
+                System.out.println("You don't have enough Cash!");
+            }
+        }
+    }
+    
+    void DisplayingAccountInfo(){
+        System.out.println(account_holder_name);
+        System.out.println(account_holder_ph_number);
+        System.out.println(balance);
+    }
+}
